@@ -1,6 +1,5 @@
 package hoods.com.jetpetrescue.domain.paginator
 
-import android.util.Log
 import java.lang.Exception
 
 class PetPaginatorImpl<Page, Result>(

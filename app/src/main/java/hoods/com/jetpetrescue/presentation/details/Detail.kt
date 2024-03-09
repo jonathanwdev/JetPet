@@ -1,6 +1,5 @@
 package hoods.com.jetpetrescue.presentation.details
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ContentAlpha
@@ -33,7 +31,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -73,7 +70,7 @@ fun DetailScreen(pet: Pet, onNavigateBack: () -> Unit, onPetBtnClick: () -> Unit
 
         LazyColumn(contentPadding = padding) {
             item {
-                if(isLoading) {
+                if (isLoading) {
                     CircularProgressIndicator()
                 }
                 AsyncImage(
@@ -180,15 +177,21 @@ fun PetInfo(pet: Pet) {
         Row(
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            PetInfoCard(primaryText = "${pet.age}yrs", secondaryText = "Age", modifier = Modifier
-                .weight(1f)
-                .padding(4.dp))
-            PetInfoCard(primaryText = pet.colors, secondaryText = "Color", modifier = Modifier
-                .weight(1f)
-                .padding(4.dp))
-            PetInfoCard(primaryText = pet.breeds, secondaryText = "Breed", modifier = Modifier
-                .weight(1f)
-                .padding(4.dp))
+            PetInfoCard(
+                primaryText = "${pet.age}yrs", secondaryText = "Age", modifier = Modifier
+                    .weight(1f)
+                    .padding(4.dp)
+            )
+            PetInfoCard(
+                primaryText = pet.colors, secondaryText = "Color", modifier = Modifier
+                    .weight(1f)
+                    .padding(4.dp)
+            )
+            PetInfoCard(
+                primaryText = pet.breeds, secondaryText = "Breed", modifier = Modifier
+                    .weight(1f)
+                    .padding(4.dp)
+            )
         }
     }
 }
@@ -209,7 +212,7 @@ fun PetInfoCard(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CompositionLocalProvider(
-                LocalContentAlpha provides  ContentAlpha.disabled
+                LocalContentAlpha provides ContentAlpha.disabled
             ) {
                 Text(
                     text = secondaryText,
